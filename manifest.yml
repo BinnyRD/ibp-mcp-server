@@ -1,0 +1,23 @@
+---
+applications:
+  - name: ibp-mcp-server
+    memory: 256M
+    disk_quota: 512M
+    instances: 1
+    buildpacks:
+      - nodejs_buildpack
+    command: node dist/src/server.js
+    health-check-type: http
+    health-check-http-endpoint: /health
+    env:
+      NODE_ENV: production
+      IBP_DESTINATION: IBP
+      # Comma-separated technical names. Empty = nothing allowed. Use * only if you mean it.
+      ALLOWED_PLANNING_AREAS: SAPIBP1
+      ALLOWED_MASTER_DATA_TYPES: SAP1PRODUCT,SAP1LOCATION
+      MAX_ROWS: "1000"
+      REQUEST_TIMEOUT_MS: "30000"
+      RATE_LIMIT_PER_MINUTE: "120"
+    services:
+      - ibp-mcp-xsuaa
+      - ibp-mcp-destination

@@ -1,0 +1,27 @@
+{
+  "xsappname": "ibp-mcp-server",
+  "tenant-mode": "dedicated",
+  "description": "Read-only MCP access to SAP IBP",
+  "scopes": [
+    { "name": "$XSAPPNAME.Read", "description": "Read IBP master data and key figures through MCP" }
+  ],
+  "authorities": ["$XSAPPNAME.Read"],
+  "role-templates": [
+    {
+      "name": "IBPMCPReader",
+      "description": "Can call the read-only IBP MCP tools",
+      "scope-references": ["$XSAPPNAME.Read"]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "IBP_MCP_Reader",
+      "description": "Read-only IBP MCP access",
+      "role-template-references": ["$XSAPPNAME.IBPMCPReader"]
+    }
+  ],
+  "oauth2-configuration": {
+    "grant-types": ["client_credentials", "authorization_code", "refresh_token"],
+    "token-validity": 3600
+  }
+}

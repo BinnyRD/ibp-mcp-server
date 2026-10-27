@@ -1,0 +1,50 @@
+{
+  "name": "ibp-mcp-server",
+  "version": "1.0.0",
+  "description": "Read-only MCP server for SAP IBP on SAP BTP Cloud Foundry",
+  "main": "dist/src/server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node dist/src/server.js",
+    "test": "npm run build && node --test \"dist/test/**/*.test.js\"",
+    "mock:ibp": "node dist/scripts/mock-ibp.js",
+    "dev": "npm run build && node dist/src/server.js",
+    "smoke": "npm run build && node dist/scripts/smoke.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@sap-cloud-sdk/connectivity": "^4.9.1",
+    "@sap-cloud-sdk/http-client": "^4.9.1",
+    "@sap/xsenv": "^6.2.2",
+    "@sap/xssec": "^4.15.0",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "fast-xml-parser": "^5.11.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "typescript": "~5.9"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Rakesh Binny Dasari",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BinnyRD/ibp-mcp-server.git"
+  },
+  "keywords": [
+    "sap",
+    "ibp",
+    "mcp",
+    "btp",
+    "claude"
+  ]
+}

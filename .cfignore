@@ -1,0 +1,9 @@
+node_modules/
+src/
+test/
+scripts/
+dist/test/
+dist/scripts/
+*.map
+.env
+default-env.json
