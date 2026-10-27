@@ -46,7 +46,7 @@ Why these services: SAP positions `PLANNING_DATA_API_SRV` and `MASTER_DATA_API_S
 
 ## 1. Try it locally in 2 minutes (no IBP needed)
 
-Requires Node.js 20+.
+Requires Node.js 22+.
 
 ```bash
 npm ci
